@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>De que lado da força você está ?</h1>
+	<br>
+	<form action="cadastrar" method="post">
+		<input name="nome" placeholder="Imperio ou Rebeldes"><br />
+		<button type="submit">Cadastrar</button>
+	</form>
+	<br />
+	<h1>LAdos já disponíveis...</h1>
+	<br />
+	<div th:each="elemento:${elementos}">
+		<p>
+			<span th:text="${elemento.nome}"></span>
+			<a th:href="@{/deletar/{id}(id=${elemento.id})}"><span>deletar</span></a>
+		</p>
+	</div>
+</body>
+</html>
